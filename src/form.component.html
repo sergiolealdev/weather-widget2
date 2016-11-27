@@ -1,0 +1,13 @@
+<div class="row">
+  <form class="col-md-2">
+    <div class="form-group">
+      <label for="test" *ngIf="model">Hi {{model}}</label>
+      <input class="form-control" id="test" type="text" 
+          [(ngModel)]="model" 
+          [ngModelOptions]="{standalone: true}" />
+    </div>
+    <button type="submit" class="btn btn-default" (click)="onClick()">
+      Submit
+    </button>
+  </form>
+</div>
