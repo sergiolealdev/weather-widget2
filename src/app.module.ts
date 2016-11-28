@@ -6,9 +6,10 @@ import { AppComponent }  from './app.component';
 
 import { InputForm } from './form.component'
 import { WeatherInfo } from './components/weather-info/weather-info';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, HttpModule],
   declarations: [AppComponent, InputForm, WeatherInfo],
   bootstrap: [WeatherInfo]
 })
