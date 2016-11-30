@@ -1,7 +1,3 @@
-# Angular2-Webpack-Boilerplate
-Angular2(RC6) starter repository with Webapck/Karma
+# Weather Widget Angular 2 version
 
-1. npm install
-2. npm start
-
-
+Work in progress.....
