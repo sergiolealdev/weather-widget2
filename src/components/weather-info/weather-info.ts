@@ -1,4 +1,5 @@
-import {Component} from '@angular/core'
+import { OpenWeatherService } from './../../services/openWeatherService';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'weather-info',
@@ -6,5 +7,15 @@ import {Component} from '@angular/core'
 })
 
 export class WeatherInfo {
-  title = 'Weather info';
+
+  private title:any;
+  constructor (private openWeatherService:OpenWeatherService){
+  
+  }
+
+  ngInit(){
+    this.title = this.openWeatherService.getWeather();
+    console.log(this.title);
+  }
+  
 }

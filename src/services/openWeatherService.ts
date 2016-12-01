@@ -7,17 +7,22 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class WeatheOpenWeatherService {
+export class OpenWeatherService {
   private url = 'http://api.openweathermap.org/data/2.5/forecast?q=Dublin&units=metric&appid=265c6a6f6256191b246b6846c8472dc8&callback=JSON_CALLBACK';
+  private weatherData:any;
+
   constructor (private http:Http){
     
   }
-  public getWeather(){
-    return this.http
-            .get(this.url)
-            .map((res:Response) => res.json())
-            //...errors if any
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 
+  public getWeather(){
+    
+    this.http
+            .get(this.url)
+            .map(res => res.json())
+            .subscribe(
+              data => this.weatherData = data
+            );
+      return this.weatherData
   }
 }
