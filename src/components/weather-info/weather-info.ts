@@ -13,7 +13,7 @@ export class WeatherInfo {
   
   }
 
-  ngInit(){
+  ngOnInit(){
     this.title = this.openWeatherService.getWeather();
     console.log(this.title);
   }
