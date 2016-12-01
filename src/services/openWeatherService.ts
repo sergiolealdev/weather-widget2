@@ -15,17 +15,16 @@ export class OpenWeatherService {
     
   }
 
-  public getWeather(){
+  public getWeather():any{
     
     this.http
             .get(this.url)
             .map(res => res.json())
             .subscribe(
-              data => this.weatherData = data,
+              data => data, 
               err => this.logError(err),
               () => console.log('Random Quote Complete')
             );
-      return this.weatherData
   }
 
   logError(err:any) {
