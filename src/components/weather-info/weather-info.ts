@@ -2,6 +2,7 @@ import { OpenWeatherService } from './../../services/openWeatherService';
 import {Component} from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import {Observable} from 'rxjs/Rx';
+import { Injectable }     from '@angular/core';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -12,6 +13,7 @@ import 'rxjs/add/operator/catch';
   templateUrl: 'weather-info.html'
 })
 
+@Injectable()
 export class WeatherInfo {
   private url = 'http://api.openweathermap.org/data/2.5/forecast?q=Dublin&units=metric&appid=265c6a6f6256191b246b6846c8472dc8';
   private weatherData:any;

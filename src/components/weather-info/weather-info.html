@@ -1,3 +1,4 @@
 Examplee
-
-{{(title.city | async)}}
+<div *ngIf="title">
+{{title.city.name}}
+</div>
