@@ -1,4 +1,19 @@
-Examplee
-<div *ngIf="title">
-{{title.city.name}}
+<div *ngIf="weather && weather.city">
+<div class="row">
+  <div class="col-md-3 col-xs-6">
+    <div class="panel panel-primary">
+      <div class="panel-body">
+        <span class="label label-primary">{{weather.city.name}} {{weather.city.country}}</span>
+        <h5 style="color:#009998">Today {{weather.list[0].dt | date}}</h5>
+        <div class="text-centered">
+          <div class="row">
+            <div style="float:left"><img style="width:75px;height:75px;" src="{{urlImage}}"></div>
+            <h5>Current: <span class="badge">{{weather.list[0].main.current}}</span></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>

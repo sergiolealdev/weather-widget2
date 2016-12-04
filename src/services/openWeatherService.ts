@@ -1,3 +1,4 @@
+// Import RxJs required methods
 import { Injectable }     from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import {Observable} from 'rxjs/Rx';
@@ -15,20 +16,12 @@ export class OpenWeatherService {
     
   }
 
-  public getWeather():any{
+  public getWeather(){
     
-    this.http
+    return this.http
             .get(this.url)
-            .map(res => res.json())
-            .subscribe(
-              data => data, 
-              err => this.logError(err),
-              () => console.log('Random Quote Complete')
-            );
+            .map(res => res.json());
   }
 
-  logError(err:any) {
-  console.error('There was an error: ' + err);
-}
 
 }

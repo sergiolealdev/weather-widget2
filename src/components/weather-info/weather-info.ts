@@ -17,25 +17,24 @@ import 'rxjs/add/operator/catch';
 export class WeatherInfo {
   private url = 'http://api.openweathermap.org/data/2.5/forecast?q=Dublin&units=metric&appid=265c6a6f6256191b246b6846c8472dc8';
   private weatherData:any;
+  private urlImage:string;
 
-  private title:any;
+  private weather:any;
   constructor (private openWeatherService:OpenWeatherService,private http:Http){
   
   }
 
   ngOnInit(){
-    //this.title = this.openWeatherService.getWeather();
-    this.http
-            .get(this.url)
-            .map(res => res.json())
+    this.openWeatherService.getWeather()
             .subscribe(
-              data => this.title = data, 
+              data => {this.weather = data;this.urlImage="http://www.openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png"}, 
               err => this.logError(err),
               () => console.log('Random Quote Complete')
             );
-    
   }
+
+  
   logError(err:any) {
   console.error('There was an error: ' + err);
-}  
+}
 }
